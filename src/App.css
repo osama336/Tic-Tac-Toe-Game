@@ -1,0 +1,240 @@
+.game-container {
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  max-width: 420px;
+  margin: 2.5rem auto;
+  padding: 0 1rem;
+}
+
+h1, h2 {
+  margin: 0 0 1.2rem;
+  color: #1a1a8f;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.6rem;
+  min-height: 2.2rem;
+}
+
+p {
+  color: blue;
+  font-size: 2rem;
+  margin: 0 0 1.8rem;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+/* Setup Screen */
+.setup-screen {
+  padding: 2.5rem 1.5rem;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  justify-content: center;
+  margin-top: 8rem;
+}
+
+button {
+  padding: 0.95rem 2.4rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  background: #2563eb;
+  color: white;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Play Again Button */
+.play-again {
+  margin-top: 2rem;
+  padding: 1.1rem 3rem;
+  font-size: 1.35rem;
+  background: #10b981;
+  box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
+}
+
+.play-again:hover {
+  background: #059669;
+  box-shadow: 0 6px 14px rgba(16, 185, 129, 0.4);
+}
+
+/* Game Board */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  width: 100%;
+  max-width: 360px;
+  margin: 2rem auto;
+}
+
+.cell {
+  aspect-ratio: 1 / 1;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.18s ease;
+  background: #1e293b; /* Dark Slate 800 */
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.cell:hover:not(.filled) {
+  background: #334155;
+  transform: scale(1.04);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}
+
+.cell.filled {
+  cursor: default;
+  transform: none;
+  box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+.cell.x {
+  color: #ef4444;
+}
+
+.cell.o {
+  color: #3b82f6;
+}
+
+/* Game Over / Result States */
+.game-over {
+  margin-top: 2rem;
+}
+
+.game-over h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+/* Optional - you can add these classes dynamically */
+.game-won h2 {
+  color: #10b981;
+}
+
+.game-lost h2 {
+  color: #ef4444;
+}
+
+.game-tie h2 {
+  color: #6b7280;
+}
+/* Main layout with sidebar on the right */
+.main-layout {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  align-items: flex-start;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Main game content (board + title + status) */
+.game-content {
+  flex: 1;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* Score sidebar on the right */
+.score-sidebar {
+  width: 220px;
+  background: #f8fafc;
+  border-radius: 16px;
+  padding: 1.5rem 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 2rem;
+}
+
+.score-sidebar h3 {
+  margin: 0 0 1.2rem;
+  font-size: 1.3rem;
+  color: #1e293b;
+  text-align: center;
+}
+
+/* Score items styling */
+.score-item {
+  margin-bottom: 1.2rem;
+  text-align: center;
+  padding: 0.8rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.score-item:last-child {
+  margin-bottom: 0;
+}
+
+.score-item span {
+  display: block;
+  font-size: 0.95rem;
+  color: #64748b;
+  margin-bottom: 0.5rem;
+}
+
+.score-item strong {
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.score-item.player strong {
+  color: #ef4444; /* Red for player (X) */
+}
+
+.score-item.computer strong {
+  color: #3b82f6; /* Blue for computer (O) */
+}
+
+.score-item.tie strong {
+  color: #6b7280; /* Gray for ties */
+}
+
+/* Responsive: on small screens, stack vertically */
+@media (max-width: 768px) {
+  .main-layout {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .score-sidebar {
+    width: 100%;
+    max-width: 400px;
+    position: static;
+    margin: 0 auto;
+  }
+}
